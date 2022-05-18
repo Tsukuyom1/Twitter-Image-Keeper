@@ -1,0 +1,24 @@
+[Twitter]
+BaseSearchQuery = #KuzuArt exclude:retweets
+# hour | day | week
+DateInterval = hour
+
+[GoogleDrive]
+# String
+RootDir = crawling_result
+
+[CSV]
+# Boolean
+AfterDelete = False
+
+[SLACK]
+# Boolean
+SendPost = True
+
+[Deploy]
+# In the case of Serverless, the number of places
+# where the write privilege can be used is limited.
+# If it is possible to have a state, select local.
+#
+# local | GCP_Cloud_Functions
+Type = GCP_Cloud_Functions
