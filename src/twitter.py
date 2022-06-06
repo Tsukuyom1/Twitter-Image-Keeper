@@ -1,6 +1,6 @@
 import tweepy
 from .config import Config
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 
 class Twitter():
@@ -36,13 +36,15 @@ class Twitter():
         Returns:
             str: _description_
         """
+        t_delta = timedelta(hours=9)
+        JST = timezone(t_delta, 'JST')
 
         if date_interval == 'hour':
-            time = datetime.now() - timedelta(hours=1)
+            time = datetime.now(JST) - timedelta(hours=1)
         elif date_interval == 'day':
-            time = datetime.now() - timedelta(days=1)
+            time = datetime.now(JST) - timedelta(days=1)
         elif date_interval == 'week':
-            time = datetime.now() - timedelta(weeks=1)
+            time = datetime.now(JST) - timedelta(weeks=1)
         else:
             return ''
 
